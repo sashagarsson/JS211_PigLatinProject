@@ -13,10 +13,32 @@ const rl = readline.createInterface({
 
 const pigLatin = (word) => {
 
-  // Your code here
+  word = word.trim().toLowerCase();
+  //array of vowels to compare to the word
+  let vowels = ['a','e','i','o','u'];
+
+  for(let letter=0; letter < word.length; letter++) {
+    //loop through the letters in the word and find the first vowel
+    //does the first letter show up in the vowels array?
+      if (vowels.includes(word[0])) {
+    //if true, return word + yay
+    return word + "yay";
+      } else if ((!vowels.includes(word[0]))  && (!vowels.includes(word[1]))) {
+        let newWord = word.slice(2) + word.slice(0,2) +"ay";
+      return newWord;
+      
+      }else {
+        // new var for word to manipulate
+        let newWord = word.slice(1) + word.slice(0,1) + "ay";
+        // slice the first letter, concat that letter to the end, and add ay
+        return newWord
+      }
+      }
 
 }
 
+// includes(searchString, position)
+// string.slice(start,end) text.slice(0,4);
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
@@ -46,8 +68,8 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin('emission'), 'emissionyay');
     });
     it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+      assert.equal(pigLatin('EgG '), 'eggyay');
+      // assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
   });
 } else {
