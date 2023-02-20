@@ -1,17 +1,18 @@
-'use strict';
+// 'use strict';
 
-// brings in the assert module for unit testing
-const assert = require('assert');
-// brings in the readline module to access the command line
-const readline = require('readline');
-// use the readline module to print out to the command line
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// // brings in the assert module for unit testing
+// const assert = require('assert');
+// // brings in the readline module to access the command line
+// const readline = require('readline');
+// // use the readline module to print out to the command line
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 
 const pigLatin = (word) => {
+  let word = document.getElementById('user-input').value
 
   word = word.trim().toLowerCase();
   //array of vowels to compare to the word
@@ -22,7 +23,8 @@ const pigLatin = (word) => {
     //does the first letter show up in the vowels array?
       if (vowels.includes(word[0])) {
     //if true, return word + yay
-    return word + "yay";
+    let newWord = word + "yay"
+    return newWord;
       } else if ((!vowels.includes(word[0]))  && (!vowels.includes(word[1]))) {
         let newWord = word.slice(2) + word.slice(0,2) +"ay";
       return newWord;
@@ -31,7 +33,7 @@ const pigLatin = (word) => {
         // new var for word to manipulate
         let newWord = word.slice(1) + word.slice(0,1) + "ay";
         // slice the first letter, concat that letter to the end, and add ay
-        return newWord
+        return newWord;
       }
       }
 
